@@ -1,0 +1,49 @@
+version: "3"
+services:
+#	Nombre del contenedor que se ejecutará
+  laravel_proyecto_ldaw_cnt:
+#   Imagen con la que se construirá el contenedor
+    image: laravel_proyecto_ldaw_img
+#	Indica si el contenedor se iniciará con una terminal interactiva (no lo termina al ejecutar)
+    tty: true
+#   Directorios del host que se montarán en el contenedor (pueden modificarse desde ambos lados)
+    volumes:
+      - /Users/sroman98/Library/Mobile\ Documents/com\~apple\~CloudDocs/ITESM/5º/LDAW/LDAW_Lupita_Sandra:/var/www/html/laravel_project
+#   Nombre que se dará al contenedor (si no se establece se asigna uno automático)
+    container_name: laravel_proyecto_ldaw_img
+#    command: service apache2 start
+#   Servicios que deben levantarse antes que éste (dependencias)
+    depends_on:
+      - mysql
+      - phpmyadmin
+    ports:
+      - 9078:80
+  mysql:
+    image: mysql
+    container_name: mysql
+#   Comandos que se ejecutarán al iniciar el contenedor
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+#   Variables de configuración del servicio (cada servicio tiene las propias)
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123
+    ports:
+      - 13306:3306
+  phpmyadmin:
+    restart: always
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+#   Establece que para ejecutarse deben cumplirse las siguientes Dependencias
+    depends_on:
+      - mysql
+#   Puerto donde se publicará el servicio en el host (se puede ver en el navegador)
+    ports:
+      - 8000:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_USER=root
+      - PMA_PASSWORD=abc123
+#      - PMA_HOST=mysql
+      - PMA_HOST=mysql
+    volumes:
+      - /sessions
