@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::post('/signup', [
@@ -23,6 +23,11 @@ Route::post('/signup', [
 Route::post('/login', [
   'uses' => 'UsuarioController@postLogin',
   'as' => 'login'
+]);
+
+Route::get('/signup', [
+  'uses' => 'UsuarioController@getSignup',
+  'as' => 'signup'
 ]);
 
 Route::get('/dashboard', [

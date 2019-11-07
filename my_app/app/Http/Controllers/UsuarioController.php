@@ -10,6 +10,10 @@ class UsuarioController extends Controller {
     return view('dashboard');
   }
 
+  public function getSignup() {
+    return view('signup');
+  }
+
   public function postSignup(Request $request) {
 
     $this->validate($request, [
@@ -56,7 +60,6 @@ class UsuarioController extends Controller {
     if (Auth::attempt(['correo' => $request['correo'], 'password' => $request['contrasena']])) {
       return redirect()->route('dashboard');
     }
-    echo "string lalalalala";
     return redirect()->back();
   }
 }

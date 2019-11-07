@@ -36,6 +36,8 @@
         <button type="submit" class="btn btn-primary col-12">Entrar</button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
       </form>
+      <br>
+      <p>¿No tienes una cuenta? <a href="{{ url('signup') }}">Regístrate</a></p>
     </div>
   </div>
   <br><br>
