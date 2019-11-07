@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-  Crear cuenta
+  Welcome!
 @endsection
 
 @section('content')
@@ -20,8 +20,7 @@
   @endif
   <div class="row">
     <div class="col-6">
-      <h2>¡Bienvenido!</h3>
-      <h5>Por favor llena el siguiente formulario para continuar</h5>
+      <h3>Sign up</h3>
       <br>
       <form action="{{ route('signup') }}" method="post">
         <div class="row">
@@ -75,7 +74,7 @@
           </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary col-12">Crear</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
       </form>
     </div>
