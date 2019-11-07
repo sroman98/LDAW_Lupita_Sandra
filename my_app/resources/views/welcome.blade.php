@@ -5,6 +5,18 @@
 @endsection
 
 @section('content')
+  <br><br>
+  @if(count($errors) > 0)
+    <div class="row">
+      <div class="col-md-6">
+        <ul>
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+  @endif
   <div class="row">
     <div class="col-6">
       <h3>Sign up</h3>
@@ -57,6 +69,6 @@
         <input type="hidden" name="_token" value="{{ Session::token() }}">
       </form>
     </div>
-
   </div>
+  <br><br>
 @endsection
