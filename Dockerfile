@@ -10,6 +10,7 @@ RUN apt-get -yqq update
 RUN apt-get -yqq upgrade
 RUN apt-get -yqq install libzip-dev
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install pdo pdo_mysql
 
 #Descargar el instalador
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
