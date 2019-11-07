@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-6">
       <h3>Sign up</h3>
-      <form action="#" method="post">
+      <form action="{{ route('signup') }}" method="post">
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input class="form-control" type="text" name="nombre" id="nombre">
@@ -42,8 +42,8 @@
           <input class="form-control" type="text" name="idCiudad" id="idCiudad">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="hidden" name="_token" value="{{ Session::token() }}">
       </form>
-
     </div>
 
   </div>
