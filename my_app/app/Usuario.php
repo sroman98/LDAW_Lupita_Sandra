@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model implements Authenticatable
 {
   use \Illuminate\Auth\Authenticatable;
+  public function getAuthPassword() {
+        return $this->contrasena;
+  }
 }
