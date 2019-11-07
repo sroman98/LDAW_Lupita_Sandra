@@ -31,15 +31,27 @@
         </div>
         <div class="form-group">
           <label for="fechaNacimiento">Fecha de nacimiento</label>
-          <input class="form-control" type="text" name="fechaNacimiento" id="fechaNacimiento">
+          <input class="form-control" type="text" name="fechaNacimiento" id="fechaNacimiento" placeholder="aaaa-mm-dd">
         </div>
         <div class="form-group">
           <label for="idEmpresa">Empresa</label>
-          <input class="form-control" type="text" name="idEmpresa" id="idEmpresa">
+          <select class="form-control" type="text" name="idEmpresa" id="idEmpresa">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="idCiudad">Ciudad</label>
-          <input class="form-control" type="text" name="idCiudad" id="idCiudad">
+          <select class="form-control" type="text" name="idCiudad" id="idCiudad">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
