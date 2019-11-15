@@ -11,7 +11,7 @@
         <a class="nav-link" href="{{ url('crearEvento') }}">Crear Evento</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Eventos</a>
+        <a class="nav-link" href="{{ url('dashboard') }}">Eventos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Reportes</a>

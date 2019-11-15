@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller {
-  public function getDashboard() {
-    return view('dashboard');
-  }
-
   public function postLogin(Request $request) {
     $this->validate($request, [
       'correo' => 'required',
