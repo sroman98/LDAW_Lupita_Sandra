@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.indexlayout')
 
 @section('title')
   Crear cuenta
