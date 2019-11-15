@@ -41,3 +41,9 @@ Route::get('/crearEvento', [
   'as' => 'crearEvento',
   'middleware' => 'auth'
 ]);
+
+Route::post('/crearEvento', [
+  'uses' => 'CrearEventoController@postEvento',
+  'as' => 'crearEvento',
+  'middleware' => 'auth'
+]);

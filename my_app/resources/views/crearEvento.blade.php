@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
           <label for="descripcion">Descripción</label>
-          <textarea class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" type="text" name="descripcion" id="descripcion" value="{{ Request::old('descripcion') }}" rows="3" required></textarea>
+          <textarea class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" type="text" name="descripcion" id="descripcion" rows="3" required>{{ Request::old('descripcion') }}</textarea>
         </div>
         <div class="row">
           <div class="form-group col-6">
@@ -54,11 +54,11 @@
         <div class="row">
           <div class="form-group col-6">
             <label for="fechaInicio">Inicio</label>
-            <input class="form-control {{ $errors->has('fechaInicio') ? 'is-invalid' : '' }}" type="text" name="fechaInicio" id="fechaInicio" placeholder="aaaa-mm-dd" value="{{ Request::old('fechaInicio') }}" required>
+            <input class="form-control {{ $errors->has('fechaInicio') ? 'is-invalid' : '' }}" type="text" name="fechaInicio" id="fechaInicio" placeholder="aaaa-mm-dd hh:mm:ss" value="{{ Request::old('fechaInicio') }}" required>
           </div>
           <div class="form-group col-6">
             <label for="fechaFin">Fin</label>
-            <input class="form-control {{ $errors->has('fechaFin') ? 'is-invalid' : '' }}" type="text" name="fechaFin" id="fechaFin" placeholder="aaaa-mm-dd" value="{{ Request::old('fechaFin') }}" required>
+            <input class="form-control {{ $errors->has('fechaFin') ? 'is-invalid' : '' }}" type="text" name="fechaFin" id="fechaFin" placeholder="aaaa-mm-dd hh:mm:ss" value="{{ Request::old('fechaFin') }}" required>
           </div>
         </div>
         <br>
