@@ -23,8 +23,10 @@ class CreateUsuariosTable extends Migration
           $table->string('contrasena');
           $table->string('telefono');
           $table->date('fechaNacimiento');
-          $table->bigInteger('idEmpresa');
-          $table->bigInteger('idCiudad');
+          $table->unsignedBigInteger('idEmpresa');
+          $table->foreign('idEmpresa')->references('idEmpresa')->on('empresas');
+          $table->unsignedBigInteger('idCiudad');
+          $table->foreign('idCiudad')->references('idCiudad')->on('ciudades');
           $table->rememberToken();
         });
     }
