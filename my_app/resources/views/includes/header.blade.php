@@ -8,7 +8,7 @@
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Crear Evento</a>
+        <a class="nav-link" href="{{ url('crearEvento') }}">Crear Evento</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Eventos</a>

@@ -35,3 +35,9 @@ Route::get('/dashboard', [
   'as' => 'dashboard',
   'middleware' => 'auth'
 ]);
+
+Route::get('/crearEvento', [
+  'uses' => 'CrearEventoController@getCrearEvento',
+  'as' => 'crearEvento',
+  'middleware' => 'auth'
+]);

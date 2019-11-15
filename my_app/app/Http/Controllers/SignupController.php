@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class SignupController extends Controller {
   public function getSignup() {
-
     $empresas = DB::table('empresas')->get();
     $ciudades = DB::table('ciudades')->get();
     return view('signup', ['empresas'=>$empresas, 'ciudades'=>$ciudades]);
