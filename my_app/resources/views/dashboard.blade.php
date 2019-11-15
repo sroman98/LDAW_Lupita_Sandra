@@ -8,7 +8,7 @@
   <br><br>
   <div class="row">
     @foreach($eventos as $evento)
-      <div class="col-4">
+      <div class="col-4 event-card">
         <div class="row">
           <div class="col-9">
             <h4>{{$evento->nombre}}</h4>
