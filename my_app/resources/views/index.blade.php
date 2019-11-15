@@ -26,7 +26,7 @@
       <form action="{{ route('login') }}" method="post">
         <div class="form-group">
           <label for="correo">Correo electrónico</label>
-          <input class="form-control {{ $errors->has('correo') ? 'is-invalid' : '' }}" type="text" name="correo" id="correo" value="{{ Request::old('correo') }}">
+          <input class="form-control {{ $errors->has('correo') ? 'is-invalid' : '' }}" type="email" name="correo" id="correo" value="{{ Request::old('correo') }}">
         </div>
         <div class="form-group">
           <label for="contrasena">Contraseña</label>

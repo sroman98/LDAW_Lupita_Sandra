@@ -16,18 +16,18 @@ Route::get('/', function () {
 });
 
 Route::post('/signup', [
-  'uses' => 'UsuarioController@postSignup',
+  'uses' => 'SignupController@postSignup',
+  'as' => 'signup'
+]);
+
+Route::get('/signup', [
+  'uses' => 'SignupController@getSignup',
   'as' => 'signup'
 ]);
 
 Route::post('/login', [
   'uses' => 'UsuarioController@postLogin',
   'as' => 'login'
-]);
-
-Route::get('/signup', [
-  'uses' => 'UsuarioController@getSignup',
-  'as' => 'signup'
 ]);
 
 Route::get('/dashboard', [
