@@ -47,3 +47,9 @@ Route::post('/crearEvento', [
   'as' => 'crearEvento',
   'middleware' => 'auth'
 ]);
+
+Route::post('/registrarme', [
+  'uses' => 'RegistroEventoController@postRegistro',
+  'as' => 'registrarme',
+  'middleware' => 'auth'
+]);
