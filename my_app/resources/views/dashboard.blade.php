@@ -9,27 +9,30 @@
     @if(count($eventos) > 0)
       <div class="row">
         @foreach($eventos as $evento)
+         <?php $asistentes = \App\Http\Controllers\DashboardController::getAttendees($evento->idEvento)  ?>
           <div class="col-4 event-card">
             <div class="row">
               <div class="col-9">
                 <h4>{{$evento->nombre}}</h4>
               </div>
-              <?php $asisto = false ?>
-              @foreach($boletos as $boleto)
-                @if($boleto->idEvento == $evento->idEvento)
-                  <?php $asisto = true ?>
-                  @break
+              @if($asistentes<$evento->maxAsistentes)
+                <?php $asisto = false ?>
+                @foreach($misboletos as $boleto)
+                  @if($boleto->idEvento == $evento->idEvento)
+                    <?php $asisto = true ?>
+                    @break
+                  @endif
+                @endforeach
+                @if($asisto == false)
+                  <div class="col-3">
+                    <form action="{{ route('registrarme') }}" method="post">
+                      <button type="submit" class="btn btn-primary" name="button">¡Asistir!</button>
+                      <input type="hidden" name="_token" value="{{ Session::token() }}">
+                      <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
+                      <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
+                    </form>
+                  </div>
                 @endif
-              @endforeach
-              @if($asisto == false)
-                <div class="col-3">
-                  <form action="{{ route('registrarme') }}" method="post">
-                    <button type="submit" class="btn btn-primary" name="button">¡Asistir!</button>
-                    <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
-                    <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
-                  </form>
-                </div>
               @endif
             </div>
             <p>{{$evento->fechaInicio}}</p>

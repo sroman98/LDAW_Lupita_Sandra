@@ -12,7 +12,12 @@ use Carbon\Carbon;
 class DashboardController extends Controller {
   public function getDashboard() {
     $eventos = DB::table('eventos')->whereDate('fechaInicio', '>', Carbon::today())->get();
-    $boletos = DB::table('boletos')->where('idUsuario', '=', Auth::id())->get();
-    return view('dashboard', ['eventos'=>$eventos, 'boletos'=>$boletos]);
+    $misboletos = DB::table('boletos')->where('idUsuario', '=', Auth::id())->get();
+    return view('dashboard', ['eventos'=>$eventos, 'misboletos'=>$misboletos]);
+  }
+
+  public static function getAttendees($idEvento) {
+    $cuenta = DB::table('boletos')->where('idEvento', '=', $idEvento)->count();
+    return $cuenta;
   }
 }
