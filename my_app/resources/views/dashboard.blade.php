@@ -15,7 +15,12 @@
                 <h4>{{$evento->nombre}}</h4>
               </div>
               <div class="col-3">
-                <button class="btn btn-primary" type="button" name="button">¡Asistir!</button>
+                <form action="{{ route('registrarme') }}" method="post">
+                  <button type="submit" class="btn btn-primary" name="button">¡Asistir!</button>
+                  <input type="hidden" name="_token" value="{{ Session::token() }}">
+                  <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
+                  <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
+                </form>
               </div>
             </div>
             <p>{{$evento->fechaInicio}}</p>

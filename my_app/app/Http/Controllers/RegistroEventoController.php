@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Boleto;
+use App\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class RegistroEventoController extends Controller {
   public function postRegistro(Request $request) {
-    $idEvento = $request['nombre'];
-    $idUsuario = $request['apellido'];
-    $estatus = $request['correo'];
+    $idEvento = $request['idEvento'];
+    $idUsuario = $request['idUsuario'];
 
     $boleto = new Boleto();
     $boleto->idEvento = $idEvento;
@@ -19,7 +19,8 @@ class RegistroEventoController extends Controller {
 
     $boleto->save();
 
-    return redirect()->route('dashboard');
+    $evento = DB::table('eventos')->where('idEvento', '=', $boleto->idEvento)->get();
+    return view('instruccionesPago', ['idBoleto' => $boleto->id, 'evento' => $evento[0]]);
   }
 }
 
