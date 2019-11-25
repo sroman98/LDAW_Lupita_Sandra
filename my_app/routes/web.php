@@ -53,3 +53,9 @@ Route::post('/registrarme', [
   'as' => 'registrarme',
   'middleware' => 'auth'
 ]);
+
+Route::post('/asistentes', [
+  'uses' => 'AsistentesController@postAsistentes',
+  'as' => 'asistentes',
+  'middleware' => 'auth'
+]);

@@ -12,7 +12,7 @@
          <?php $asistentes = \App\Http\Controllers\DashboardController::getAttendees($evento->idEvento)  ?>
           <div class="col-4 event-card">
             <div class="row">
-              <div class="col-9">
+              <div class="col-8">
                 <h4>{{$evento->nombre}}</h4>
               </div>
               @if($asistentes<$evento->maxAsistentes)
@@ -24,9 +24,9 @@
                   @endif
                 @endforeach
                 @if($asisto == false)
-                  <div class="col-3">
+                  <div class="col-4">
                     <form action="{{ route('registrarme') }}" method="post">
-                      <button type="submit" class="btn btn-primary" name="button">¡Asistir!</button>
+                      <button type="submit" class="btn btn-primary col-12" name="button">¡Asistir!</button>
                       <input type="hidden" name="_token" value="{{ Session::token() }}">
                       <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
                       <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
@@ -39,6 +39,13 @@
             <h6>{{$evento->lugar}}</h6>
             <p>${{$evento->costo}}</p>
             <p>{{$evento->descripcion}}</p>
+            <form action="{{ route('asistentes') }}" method="post" class="row">
+              <button type="submit" class="btn btn-secondary col-12 grey" name="button">Asistentes</button>
+              <input type="hidden" name="_token" value="{{ Session::token() }}">
+              <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
+              <input type="hidden" name="siglas" value="{{$evento->siglas}}">
+              <input type="hidden" name="nombre" value="{{$evento->nombre}}">
+            </form>
           </div>
         @endforeach
       </div>
