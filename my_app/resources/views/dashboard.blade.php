@@ -32,7 +32,15 @@
                       <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
                     </form>
                   </div>
+                @else
+                  <div class="col-4">
+                    <h6 class="text-success">¡Asistirás!</h6>
+                  </div>
                 @endif
+              @else
+                <div class="col-4">
+                  <h6 class="text-danger">¡Agotado!</h6>
+                </div>
               @endif
             </div>
             <p>{{$evento->fechaInicio}}</p>
