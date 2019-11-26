@@ -18,8 +18,9 @@
     </div>
     <br>
   @endif
-  <div class="row">
+  <div class="row" style="background-color: white;border-radius: 25px;">
     <div class="col-6">
+      <br>
       <h2>Nuevo Evento</h3>
       <br>
       <form action="{{ route('crearEvento') }}" method="post">
@@ -62,9 +63,13 @@
           </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary col-12">¡Crear Evento!</button>
+        <button type="submit" class="btn col-12" style="background-color:black;color:white;">¡Crear Evento!</button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
       </form>
+      <br>
+    </div>
+    <div class="col-6" style="padding-right: 0;">
+      <img style="width: 100%; height: 100%;" src="{{ asset('img/bg.jpg') }}" alt="">
     </div>
   </div>
   <br><br>
