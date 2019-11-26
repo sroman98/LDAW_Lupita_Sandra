@@ -30,6 +30,11 @@ Route::post('/login', [
   'as' => 'login'
 ]);
 
+Route::get('/logout', [
+  'uses' => 'UsuarioController@getLogout',
+  'as' => 'logout'
+]);
+
 Route::get('/dashboard', [
   'uses' => 'DashboardController@getDashboard',
   'as' => 'dashboard',
