@@ -44,7 +44,7 @@ class SignupController extends Controller {
     $usuario->fechaNacimiento = $fechaNacimiento;
     $usuario->idEmpresa = $idEmpresa;
     $usuario->idCiudad = $idCiudad;
-    $usuario->idRol = 1;
+    $usuario->idRol = 2;
 
     $usuario->save();
 

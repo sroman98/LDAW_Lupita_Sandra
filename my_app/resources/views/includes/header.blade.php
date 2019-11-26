@@ -7,17 +7,13 @@
 
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('crearEvento') }}">Crear Evento</a>
-      </li>
+      @if(Auth::user()->idRol === 1)
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('crearEvento') }}">Crear Evento</a>
+        </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard') }}">Eventos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Reportes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Mi Cuenta</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('logout') }}">Cerrar Sesión</a>
