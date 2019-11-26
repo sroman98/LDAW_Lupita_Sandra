@@ -1,7 +1,7 @@
 @extends('layouts.indexlayout')
 
 @section('title')
-  Crear cuenta
+  Iniciar sesión
 @endsection
 
 @section('content')
