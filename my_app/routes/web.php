@@ -44,13 +44,13 @@ Route::get('/dashboard', [
 Route::get('/crearEvento', [
   'uses' => 'CrearEventoController@getCrearEvento',
   'as' => 'crearEvento',
-  'middleware' => 'auth'
+  'middleware' => ['auth', 'auth.admin']
 ]);
 
 Route::post('/crearEvento', [
   'uses' => 'CrearEventoController@postEvento',
   'as' => 'crearEvento',
-  'middleware' => 'auth'
+  'middleware' => ['auth', 'auth.admin']
 ]);
 
 Route::post('/registrarme', [
@@ -62,5 +62,5 @@ Route::post('/registrarme', [
 Route::post('/asistentes', [
   'uses' => 'AsistentesController@postAsistentes',
   'as' => 'asistentes',
-  'middleware' => 'auth'
+  'middleware' => ['auth', 'auth.admin']
 ]);

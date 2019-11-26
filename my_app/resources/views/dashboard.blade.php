@@ -47,13 +47,15 @@
             <h6>{{$evento->lugar}}</h6>
             <p>${{$evento->costo}}</p>
             <p>{{$evento->descripcion}}</p>
-            <form action="{{ route('asistentes') }}" method="post" class="row">
-              <button type="submit" class="btn btn-secondary col-12 grey" name="button">Asistentes</button>
-              <input type="hidden" name="_token" value="{{ Session::token() }}">
-              <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
-              <input type="hidden" name="siglas" value="{{$evento->siglas}}">
-              <input type="hidden" name="nombre" value="{{$evento->nombre}}">
-            </form>
+            @if(Auth::user()->idRol === 1)
+              <form action="{{ route('asistentes') }}" method="post" class="row">
+                <button type="submit" class="btn btn-secondary col-12 grey" name="button">Asistentes</button>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <input type="hidden" name="idEvento" value="{{$evento->idEvento}}">
+                <input type="hidden" name="siglas" value="{{$evento->siglas}}">
+                <input type="hidden" name="nombre" value="{{$evento->nombre}}">
+              </form>
+            @endif
           </div>
         @endforeach
       </div>

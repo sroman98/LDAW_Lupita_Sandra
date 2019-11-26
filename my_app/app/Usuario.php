@@ -14,4 +14,8 @@ class Usuario extends Model implements Authenticatable
   public function getAuthPassword() {
         return $this->contrasena;
   }
+
+  public function hasAnyRole($role) {
+    return $this->idRol === $role;
+  }
 }
